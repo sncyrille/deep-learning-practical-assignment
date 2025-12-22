@@ -1,6 +1,8 @@
 import tensorflow as tf
 from tensorflow import keras
 import numpy as np
+import mlflow
+import mlflow . tensorflow
 
 #Chargement du jeu de donn es MNIST
 (x_train, y_train), (x_test, y_test) = keras.datasets.mnist.load_data()
@@ -44,3 +46,19 @@ print(f"Pr cision sur les donn es de test: {test_acc:.4f}")
 #Sauvegarde du mod le
 model.save("mnist_model.h5")
 print("Mod le sauvegard  sous mnist_model.h5")
+
+EPOCHS = 5
+BATCH_SIZE = 128
+DROPOUT_RATE = 0.2
+
+with mlflow.start_run():
+    # Enregistrement des paramtres
+    mlflow.log_param("epochs", EPOCHS)
+    mlflow.log_param("batch_size", BATCH_SIZE)
+    mlflow.log_param("dropout_rate", DROPOUT_RATE)
+
+    # Entraînement du modèle
+
+    mlflow.log_metric("test_accuracy", test_acc)
+
+    mlflow.keras.log_model(model, "mnist-model")
