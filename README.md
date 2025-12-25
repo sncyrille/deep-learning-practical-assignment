@@ -1,8 +1,7 @@
 # Deep Learning Practical Works (TP 1, 2, 3, & 4)
 
-**Author:** Shey Cyrille Njeta
-**Department:** Computer Engineering, ENSPY  
-**Date:** October 2025
+**Author:** Shey Cyrille Njeta 
+
 
 This repository contains the source code, Docker configurations, and reports for the Deep Learning practical assignments (TP 1 to 4).
 
